@@ -1,0 +1,28 @@
+2026-01-16 09:58:19.8700 79032 NAPS2.TW - Invalid memory buffer: w -1, h -1, bpr 0, len 18340, x -1, y -1 
+2026-01-16 10:20:57.2415 76088 El proceso no tiene acceso al archivo porque otro proceso tiene bloqueada una parte del archivo. (0x80070021) System.IO.FileLoadException: El proceso no tiene acceso al archivo porque otro proceso tiene bloqueada una parte del archivo. (0x80070021)
+   at IWiaItem2 NAPS2.Wia.Native.IWiaDevMgr2.CreateDevice(int lFlags, string bstrDeviceID)
+   at uint NAPS2.Wia.Native.NativeWiaMethods.GetDevice2(IntPtr deviceManagerPtr, string deviceId, out IntPtr device)
+   at WiaDevice NAPS2.Wia.WiaDeviceManager.FindDevice(string deviceID)
+   at async Task NAPS2.Scan.Internal.Wia.WiaScanDriver+WiaScanContext.Scan(WiaVersion wiaVersion)
+   at async Task NAPS2.Scan.Internal.Wia.WiaScanDriver.Scan(ScanOptions options, CancellationToken cancelToken, IScanEvents scanEvents, Action<IMemoryImage> callback)+(?) => { }
+   at async Task NAPS2.Scan.Internal.RemoteScanController.Scan(ScanOptions options, CancellationToken cancelToken, IScanEvents scanEvents, Action<ProcessedImage, PostProcessingContext> callback)
+   at async Task NAPS2.Scan.ScanController+<>c__DisplayClass15_1.<Scan>g__DoScan|7(?)+DoScan(?)
+   at async IAsyncEnumerable<ProcessedImage> NAPS2.Scan.ScanController.Scan(ScanOptions options, CancellationToken cancelToken)+(?) => { }
+2026-01-16 15:21:57.3766 13884 Error setting property 6151 System.ArgumentException: Value does not fall within the expected range.
+   at void NAPS2.Wia.Native.IWiaPropertyStorage.WriteMultiple(uint cpspec, PROPSPEC[] rgpspec, PROPVARIANT[] rgpropvar, uint propidNameFirst)
+   at uint NAPS2.Wia.Native.NativeWiaMethods.SetPropertyInt(IntPtr propStoragePtr, int propId, int value)
+   at void NAPS2.Wia.WiaProperty.set_Value(object value)
+   at void NAPS2.Wia.WiaExtensions.SetProperty(WiaItemBase item, int propId, int value)
+   at void NAPS2.Scan.Internal.Wia.WiaScanDriver+WiaScanContext.SafeSetProperty(WiaItemBase item, int propId, int value)
+2026-01-16 15:32:31.8004 83220 Error setting property 6151 System.ArgumentException: Value does not fall within the expected range.
+   at void NAPS2.Wia.Native.IWiaPropertyStorage.WriteMultiple(uint cpspec, PROPSPEC[] rgpspec, PROPVARIANT[] rgpropvar, uint propidNameFirst)
+   at uint NAPS2.Wia.Native.NativeWiaMethods.SetPropertyInt(IntPtr propStoragePtr, int propId, int value)
+   at void NAPS2.Wia.WiaProperty.set_Value(object value)
+   at void NAPS2.Wia.WiaExtensions.SetProperty(WiaItemBase item, int propId, int value)
+   at void NAPS2.Scan.Internal.Wia.WiaScanDriver+WiaScanContext.SafeSetProperty(WiaItemBase item, int propId, int value)
+2026-01-16 15:32:47.0226 47112 Error setting property 6151 System.ArgumentException: Value does not fall within the expected range.
+   at void NAPS2.Wia.Native.IWiaPropertyStorage.WriteMultiple(uint cpspec, PROPSPEC[] rgpspec, PROPVARIANT[] rgpropvar, uint propidNameFirst)
+   at uint NAPS2.Wia.Native.NativeWiaMethods.SetPropertyInt(IntPtr propStoragePtr, int propId, int value)
+   at void NAPS2.Wia.WiaProperty.set_Value(object value)
+   at void NAPS2.Wia.WiaExtensions.SetProperty(WiaItemBase item, int propId, int value)
+   at void NAPS2.Scan.Internal.Wia.WiaScanDriver+WiaScanContext.SafeSetProperty(WiaItemBase item, int propId, int value)

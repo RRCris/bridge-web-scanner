@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ArrayOfScanProfile xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <ScanProfile>
+    <Version>2</Version>
+    <Device>
+      <ID>{6BDD1FC6-810F-11D0-BEC7-08002BE2092F}\0000</ID>
+      <Name>KODAK E1040 Scanner</Name>
+      <IconUri xsi:nil="true"/>
+      <ConnectionUri xsi:nil="true"/>
+    </Device>
+    <Caps>
+      <PaperSources>Feeder,Duplex</PaperSources>
+      <FeederCheck>true</FeederCheck>
+      <Glass/>
+      <Feeder>
+        <ScanArea>8,5x14 in</ScanArea>
+        <Resolutions>50,100,150,200,300,400,600,1200</Resolutions>
+      </Feeder>
+      <Duplex>
+        <ScanArea>8,5x14 in</ScanArea>
+        <Resolutions>50,100,150,200,300,400,600,1200</Resolutions>
+      </Duplex>
+    </Caps>
+    <DriverName>wia</DriverName>
+    <DisplayName>KODAK E1040 Scanner</DisplayName>
+    <IconID>0</IconID>
+    <MaxQuality>false</MaxQuality>
+    <IsDefault>false</IsDefault>
+    <UseNativeUI>false</UseNativeUI>
+    <AfterScanScale>OneToOne</AfterScanScale>
+    <Brightness>0</Brightness>
+    <Contrast>0</Contrast>
+    <BitDepth>C24Bit</BitDepth>
+    <PageAlign>Right</PageAlign>
+    <PageSize>Letter</PageSize>
+    <CustomPageSizeName xsi:nil="true"/>
+    <CustomPageSize xsi:nil="true"/>
+    <Resolution>Dpi100</Resolution>
+    <PaperSource>Feeder</PaperSource>
+    <EnableAutoSave>false</EnableAutoSave>
+    <AutoSaveSettings xsi:nil="true"/>
+    <Quality>75</Quality>
+    <AutoDeskew>false</AutoDeskew>
+    <RotateDegrees>0</RotateDegrees>
+    <BrightnessContrastAfterScan>false</BrightnessContrastAfterScan>
+    <ForcePageSize>false</ForcePageSize>
+    <ForcePageSizeCrop>false</ForcePageSizeCrop>
+    <TwainImpl>Default</TwainImpl>
+    <TwainProgress>false</TwainProgress>
+    <ExcludeBlankPages>false</ExcludeBlankPages>
+    <BlankPageWhiteThreshold>70</BlankPageWhiteThreshold>
+    <BlankPageCoverageThreshold>25</BlankPageCoverageThreshold>
+    <WiaOffsetWidth>false</WiaOffsetWidth>
+    <WiaRetryOnFailure>false</WiaRetryOnFailure>
+    <WiaDelayBetweenScans>false</WiaDelayBetweenScans>
+    <WiaDelayBetweenScansSeconds>2</WiaDelayBetweenScansSeconds>
+    <WiaVersion>Default</WiaVersion>
+    <FlipDuplexedPages>false</FlipDuplexedPages>
+    <KeyValueOptions xsi:nil="true"/>
+  </ScanProfile>
+  <ScanProfile>
+    <Version>2</Version>
+    <Device>
+      <ID/>
+      <Name>Scanner Name</Name>
+      <IconUri xsi:nil="true"/>
+      <ConnectionUri xsi:nil="true"/>
+    </Device>
+    <DriverName>wia</DriverName>
+    <DisplayName>Mi Nuevo Perfil</DisplayName>
+    <IconID>0</IconID>
+    <MaxQuality>false</MaxQuality>
+    <IsDefault>false</IsDefault>
+    <UseNativeUI>false</UseNativeUI>
+    <AfterScanScale>OneToOne</AfterScanScale>
+    <Brightness>0</Brightness>
+    <Contrast>0</Contrast>
+    <BitDepth>C24Bit</BitDepth>
+    <PageAlign>Right</PageAlign>
+    <PageSize>Letter</PageSize>
+    <CustomPageSizeName xsi:nil="true"/>
+    <CustomPageSize xsi:nil="true"/>
+    <Resolution>Dpi300</Resolution>
+    <PaperSource>Glass</PaperSource>
+    <EnableAutoSave>false</EnableAutoSave>
+    <AutoSaveSettings xsi:nil="true"/>
+    <Quality>75</Quality>
+    <AutoDeskew>false</AutoDeskew>
+    <RotateDegrees>0</RotateDegrees>
+    <BrightnessContrastAfterScan>false</BrightnessContrastAfterScan>
+    <ForcePageSize>false</ForcePageSize>
+    <ForcePageSizeCrop>false</ForcePageSizeCrop>
+    <TwainImpl>Default</TwainImpl>
+    <TwainProgress>false</TwainProgress>
+    <ExcludeBlankPages>false</ExcludeBlankPages>
+    <BlankPageWhiteThreshold>70</BlankPageWhiteThreshold>
+    <BlankPageCoverageThreshold>25</BlankPageCoverageThreshold>
+    <WiaOffsetWidth>false</WiaOffsetWidth>
+    <WiaRetryOnFailure>false</WiaRetryOnFailure>
+    <WiaDelayBetweenScans>false</WiaDelayBetweenScans>
+    <WiaDelayBetweenScansSeconds>2</WiaDelayBetweenScansSeconds>
+    <WiaVersion>Default</WiaVersion>
+    <FlipDuplexedPages>false</FlipDuplexedPages>
+    <KeyValueOptions xsi:nil="true"/>
+  </ScanProfile>
+  <ScanProfile>
+    <Version>2</Version>
+    <Device>
+      <ID>{6BDD1FC6-810F-11D0-BEC7-08002BE2092F}\0000</ID>
+      <Name>KODAK E1040 Scanner</Name>
+      <IconUri xsi:nil="true"/>
+      <ConnectionUri xsi:nil="true"/>
+    </Device>
+    <DriverName>wia</DriverName>
+    <DisplayName>Ultimo perfil</DisplayName>
+    <IconID>0</IconID>
+    <MaxQuality>false</MaxQuality>
+    <IsDefault>false</IsDefault>
+    <UseNativeUI>false</UseNativeUI>
+    <AfterScanScale>OneToOne</AfterScanScale>
+    <Brightness>0</Brightness>
+    <Contrast>0</Contrast>
+    <BitDepth>C24Bit</BitDepth>
+    <PageAlign>Right</PageAlign>
+    <PageSize>Letter</PageSize>
+    <CustomPageSizeName xsi:nil="true"/>
+    <CustomPageSize xsi:nil="true"/>
+    <Resolution>Dpi300</Resolution>
+    <PaperSource>Glass</PaperSource>
+    <EnableAutoSave>false</EnableAutoSave>
+    <AutoSaveSettings xsi:nil="true"/>
+    <Quality>75</Quality>
+    <AutoDeskew>false</AutoDeskew>
+    <RotateDegrees>0</RotateDegrees>
+    <BrightnessContrastAfterScan>false</BrightnessContrastAfterScan>
+    <ForcePageSize>false</ForcePageSize>
+    <ForcePageSizeCrop>false</ForcePageSizeCrop>
+    <TwainImpl>Default</TwainImpl>
+    <TwainProgress>false</TwainProgress>
+    <ExcludeBlankPages>false</ExcludeBlankPages>
+    <BlankPageWhiteThreshold>70</BlankPageWhiteThreshold>
+    <BlankPageCoverageThreshold>25</BlankPageCoverageThreshold>
+    <WiaOffsetWidth>false</WiaOffsetWidth>
+    <WiaRetryOnFailure>false</WiaRetryOnFailure>
+    <WiaDelayBetweenScans>false</WiaDelayBetweenScans>
+    <WiaDelayBetweenScansSeconds>2</WiaDelayBetweenScansSeconds>
+    <WiaVersion>Default</WiaVersion>
+    <FlipDuplexedPages>false</FlipDuplexedPages>
+    <KeyValueOptions xsi:nil="true"/>
+  </ScanProfile>
+</ArrayOfScanProfile>

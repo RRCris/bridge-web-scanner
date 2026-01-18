@@ -1,0 +1,501 @@
+{
+  "info": {
+    "name": "Bridge-Scan-Web API",
+    "description": "API REST para integración con NAPS2 scanner",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "http://localhost:3000",
+      "type": "string"
+    }
+  ],
+  "item": [
+    {
+      "name": "Health",
+      "item": [
+        {
+          "name": "Health Check",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/health",
+              "host": ["{{baseUrl}}"],
+              "path": ["health"]
+            },
+            "description": "Verificar estado del servidor"
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Devices",
+      "description": "Endpoints para listar dispositivos de escaneo. Los dispositivos WIA incluyen su ID único que puede usarse para crear perfiles.",
+      "item": [
+        {
+          "name": "List All Devices",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/devices",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "devices"]
+            },
+            "description": "Listar todos los scanners disponibles (busca en WIA, TWAIN y eSCL). La respuesta incluye: id (solo para WIA), name y driver. Ejemplo de respuesta:\n\n```json\n{\n  \"success\": true,\n  \"data\": [\n    {\n      \"id\": \"{6BDD1FC6-810F-11D0-BEC7-08002BE2092F}\\\\0000\",\n      \"name\": \"KODAK E1040 Scanner\",\n      \"driver\": \"wia\"\n    }\n  ]\n}\n```"
+          },
+          "response": []
+        },
+        {
+          "name": "List Devices by Driver",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/devices?driver=wia",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "devices"],
+              "query": [
+                {
+                  "key": "driver",
+                  "value": "wia",
+                  "description": "Driver: wia, twain, escl"
+                }
+              ]
+            },
+            "description": "Listar scanners por driver específico. El ID de dispositivo solo está disponible para driver WIA."
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Profiles",
+      "item": [
+        {
+          "name": "List Profiles",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/profiles",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "profiles"]
+            },
+            "description": "Listar todos los perfiles de escaneo configurados en NAPS2"
+          },
+          "response": []
+        },
+        {
+          "name": "Get Profile by Name",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/profiles/:name",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "profiles", ":name"],
+              "variable": [
+                {
+                  "key": "name",
+                  "value": "Default",
+                  "description": "Nombre del perfil"
+                }
+              ]
+            },
+            "description": "Obtener detalles de un perfil específico"
+          },
+          "response": []
+        },
+        {
+          "name": "Create Profile",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"displayName\": \"Mi Nuevo Perfil\",\n  \"isDefault\": false,\n  \"device\": {\n    \"id\": \"\",\n    \"name\": \"Scanner Name\"\n  },\n  \"driverName\": \"wia\",\n  \"bitDepth\": \"C24Bit\",\n  \"pageSize\": \"Letter\",\n  \"resolution\": \"Dpi300\",\n  \"paperSource\": \"Glass\"\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/profiles",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "profiles"]
+            },
+            "description": "Crear un nuevo perfil de escaneo. Solo displayName es requerido, los demás campos tienen valores por defecto."
+          },
+          "response": []
+        },
+        {
+          "name": "Create Profile (Minimal)",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"displayName\": \"Perfil Simple\"\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/profiles",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "profiles"]
+            },
+            "description": "Crear perfil con solo el nombre (usa valores por defecto)"
+          },
+          "response": []
+        },
+        {
+          "name": "Update Profile",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"displayName\": \"Nombre Actualizado\",\n  \"isDefault\": true,\n  \"resolution\": \"Dpi600\"\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/profiles/:name",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "profiles", ":name"],
+              "variable": [
+                {
+                  "key": "name",
+                  "value": "Mi Nuevo Perfil",
+                  "description": "Nombre actual del perfil a modificar"
+                }
+              ]
+            },
+            "description": "Actualizar un perfil existente. Solo enviar los campos que se desean modificar."
+          },
+          "response": []
+        },
+        {
+          "name": "Delete Profile",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/profiles/:name",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "profiles", ":name"],
+              "variable": [
+                {
+                  "key": "name",
+                  "value": "Perfil a Eliminar",
+                  "description": "Nombre del perfil a eliminar"
+                }
+              ]
+            },
+            "description": "Eliminar un perfil de escaneo"
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Scan",
+      "description": "Endpoints para escaneo. Hay dos modos válidos:\n\n1. **Modo Perfil**: Enviar `profile` (nombre del perfil existente en NAPS2). Opcionalmente puede incluir driver/device para sobrescribir.\n\n2. **Modo Custom**: Enviar `driver` + `device` (ambos requeridos). No incluir profile.\n\nParámetros opcionales comunes: source, dpi, bitDepth, pageSize, outputFormat, numberOfScans",
+      "item": [
+        {
+          "name": "Start Scan (Profile)",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"profile\": \"KODAK E1040 Scanner\",\n  \"outputFormat\": \"pdf\"\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/scan",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "scan"]
+            },
+            "description": "Iniciar escaneo usando un perfil de NAPS2. El perfil debe existir (verificable en GET /api/profiles). Si el perfil no existe, retorna 404."
+          },
+          "response": []
+        },
+        {
+          "name": "Start Scan (Custom)",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"driver\": \"wia\",\n  \"device\": \"KODAK E1040 Scanner\",\n  \"source\": \"glass\",\n  \"dpi\": 300,\n  \"bitDepth\": \"color\",\n  \"pageSize\": \"a4\",\n  \"outputFormat\": \"pdf\"\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/scan",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "scan"]
+            },
+            "description": "Iniciar escaneo con configuración personalizada. Requiere AMBOS campos: driver (wia|twain|escl) y device (nombre del escáner). Obtener dispositivos disponibles con GET /api/devices."
+          },
+          "response": []
+        },
+        {
+          "name": "Start Scan (Profile + Override)",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"profile\": \"KODAK E1040 Scanner\",\n  \"source\": \"feeder\",\n  \"dpi\": 200,\n  \"outputFormat\": \"pdf\"\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/scan",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "scan"]
+            },
+            "description": "Usar un perfil existente pero sobrescribir algunas opciones (source, dpi, etc.)"
+          },
+          "response": []
+        },
+        {
+          "name": "Start Scan (Feeder)",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"profile\": \"KODAK E1040 Scanner\",\n  \"source\": \"feeder\",\n  \"outputFormat\": \"pdf\"\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/scan",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "scan"]
+            },
+            "description": "Escanear desde alimentador automático (ADF). Requiere que el escáner tenga ADF."
+          },
+          "response": []
+        },
+        {
+          "name": "Start Scan (Duplex)",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"profile\": \"KODAK E1040 Scanner\",\n  \"source\": \"duplex\",\n  \"outputFormat\": \"pdf\"\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/scan",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "scan"]
+            },
+            "description": "Escanear doble cara (duplex). Requiere que el escáner soporte escaneo duplex."
+          },
+          "response": []
+        },
+        {
+          "name": "Start Scan (Image PNG)",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"profile\": \"KODAK E1040 Scanner\",\n  \"dpi\": 600,\n  \"outputFormat\": \"png\"\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/scan",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "scan"]
+            },
+            "description": "Escanear como imagen PNG alta resolución. Formatos soportados: pdf, jpg, png, tiff"
+          },
+          "response": []
+        },
+        {
+          "name": "Start Scan (Multiple Pages)",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"profile\": \"KODAK E1040 Scanner\",\n  \"source\": \"feeder\",\n  \"numberOfScans\": 5,\n  \"outputFormat\": \"pdf\"\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/scan",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "scan"]
+            },
+            "description": "Escanear múltiples páginas. numberOfScans indica cuántas páginas escanear desde el alimentador."
+          },
+          "response": []
+        },
+        {
+          "name": "Start Scan (Invalid - No Profile/Device)",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"dpi\": 300,\n  \"outputFormat\": \"pdf\"\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/scan",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "scan"]
+            },
+            "description": "EJEMPLO DE ERROR: Este request falla con 400 porque no tiene ni profile ni (driver+device). Debe proporcionar uno de los dos modos válidos."
+          },
+          "response": []
+        },
+        {
+          "name": "Start Scan (Invalid - Only Driver)",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"driver\": \"wia\",\n  \"outputFormat\": \"pdf\"\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/scan",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "scan"]
+            },
+            "description": "EJEMPLO DE ERROR: Este request falla con 400 porque en modo custom se requiere AMBOS driver y device."
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Files",
+      "item": [
+        {
+          "name": "List Files",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/files",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "files"]
+            },
+            "description": "Listar todos los archivos escaneados"
+          },
+          "response": []
+        },
+        {
+          "name": "Download File",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/files/:id",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "files", ":id"],
+              "variable": [
+                {
+                  "key": "id",
+                  "value": "uuid-del-archivo",
+                  "description": "ID del archivo (UUID sin extensión)"
+                }
+              ]
+            },
+            "description": "Descargar un archivo escaneado"
+          },
+          "response": []
+        },
+        {
+          "name": "Delete File",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/files/:id",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "files", ":id"],
+              "variable": [
+                {
+                  "key": "id",
+                  "value": "uuid-del-archivo",
+                  "description": "ID del archivo a eliminar"
+                }
+              ]
+            },
+            "description": "Eliminar un archivo escaneado"
+          },
+          "response": []
+        },
+        {
+          "name": "Clear All Files",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/files/clear",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "files", "clear"]
+            },
+            "description": "Eliminar TODOS los archivos escaneados. Devuelve la cantidad de archivos eliminados."
+          },
+          "response": []
+        }
+      ]
+    }
+  ]
+}
