@@ -133,3 +133,23 @@
 2026-01-16 16:30:20.9605 83836 Debug: Using TWAIN2 memory functions. 
 2026-01-16 16:30:20.9605 83836 Debug: Source id = 1 
 2026-01-16 16:30:20.9605 83836 Debug: Thread 1: CloseManager. 
+2026-01-19 09:53:19.3442 50576 Debug: Using new dsm. 
+2026-01-19 09:53:19.5091 50576 Debug: Thread 1: OpenManager. 
+2026-01-19 09:53:20.0590 50576 Debug: Using TWAIN2 memory functions. 
+2026-01-19 09:53:20.0590 50576 Debug: Source id = 1 
+2026-01-19 09:53:20.0653 50576 Debug: Thread 1: CloseManager. 
+2026-01-19 10:00:10.0047 62072 Debug: Using new dsm. 
+2026-01-19 10:00:10.0938 62072 Debug: Thread 1: OpenManager. 
+2026-01-19 10:00:10.1614 62072 Debug: Using TWAIN2 memory functions. 
+2026-01-19 10:00:10.1614 62072 Debug: Source id = 1 
+2026-01-19 10:00:10.1614 62072 Debug: Thread 1: CloseManager. 
+2026-01-19 10:46:25.9895 57204 Debug: Using new dsm. 
+2026-01-19 10:46:26.0789 57204 Debug: Thread 1: OpenManager. 
+2026-01-19 10:46:26.2003 57204 Debug: Using TWAIN2 memory functions. 
+2026-01-19 10:46:26.2003 57204 Debug: Source id = 1 
+2026-01-19 10:46:26.2003 57204 Debug: Thread 1: CloseManager. 
+2026-01-19 10:48:06.0449 84360 Debug: Using new dsm. 
+2026-01-19 10:48:06.1264 84360 Debug: Thread 1: OpenManager. 
+2026-01-19 10:48:06.2013 84360 Debug: Using TWAIN2 memory functions. 
+2026-01-19 10:48:06.2013 84360 Debug: Source id = 1 
+2026-01-19 10:48:06.2013 84360 Debug: Thread 1: CloseManager. 

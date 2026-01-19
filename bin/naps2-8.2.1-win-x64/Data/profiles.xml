@@ -115,7 +115,7 @@
     <DisplayName>Ultimo perfil</DisplayName>
     <IconID>0</IconID>
     <MaxQuality>false</MaxQuality>
-    <IsDefault>false</IsDefault>
+    <IsDefault>true</IsDefault>
     <UseNativeUI>false</UseNativeUI>
     <AfterScanScale>OneToOne</AfterScanScale>
     <Brightness>0</Brightness>
@@ -125,7 +125,7 @@
     <PageSize>Letter</PageSize>
     <CustomPageSizeName xsi:nil="true"/>
     <CustomPageSize xsi:nil="true"/>
-    <Resolution>Dpi300</Resolution>
+    <Resolution>Dpi200</Resolution>
     <PaperSource>Glass</PaperSource>
     <EnableAutoSave>false</EnableAutoSave>
     <AutoSaveSettings xsi:nil="true"/>

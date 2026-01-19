@@ -1,0 +1,16 @@
+<service>
+  <id>bridgescanwebv3</id>
+  <name>Bridge Scan Web</name>
+  <description>This service runs Bridge Scan Web continuous integration system.</description>
+  <env name="BRIDGE_HOME" value="%BASE%"/>
+  <executable>bridge-scan-web</executable>
+  <startmode>Automatic</startmode>
+  <delayedAutoStart>true</delayedAutoStart>
+  <log mode="roll"></log>
+
+  <onfailure action="restart" delay="10 sec"/>
+  <onfailure action="restart" delay="20 sec"/>
+  <onfailure action="restart" delay="30 sec"/>
+  <depend>Tcpip</depend>
+  <depend>LanmanServer</depend>
+</service>
