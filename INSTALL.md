@@ -16,7 +16,8 @@ Bridge Scan Web es una API REST que actua como puente para la integracion con es
 
 ### Para Instalacion en Equipos de Destino
 
-- **Windows 10/11** (64-bit)
+- **Windows 10/11** (64-bit, x64)
+- **Arquitectura x64** (no compatible con sistemas ARM o x86)
 - **NAPS2** (portable, incluido en el build)
 - **Escaner compatible** con WIA (Windows Image Acquisition)
 - **Permisos de administrador** (para instalar como servicio)
