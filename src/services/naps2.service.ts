@@ -8,7 +8,7 @@ import { getNaps2ConsolePath, getScansOutputPath } from '../utils/paths';
 import { logger } from '../utils/logger';
 import type { ScanOptions, ScanResult, DeviceInfo } from '../types';
 
-export const VALID_DRIVERS = ['wia', 'twain', 'escl'] as const;
+export const VALID_DRIVERS = ['wia', 'twain'] as const;
 export type ValidDriver = (typeof VALID_DRIVERS)[number];
 
 // Schemas de validación para respuestas de NAPS2

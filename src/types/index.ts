@@ -1,7 +1,7 @@
 export interface ScanOptions {
   profile?: string;
   device?: string;
-  driver?: 'wia' | 'twain' | 'escl' | 'sane';
+  driver?: 'wia' | 'twain';
   source?: 'glass' | 'feeder' | 'duplex';
   dpi?: number;
   bitDepth?: 'color' | 'gray' | 'bw';

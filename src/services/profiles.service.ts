@@ -16,7 +16,7 @@ const ScanProfileSchema = z.object({
   displayName: z.string().min(1, 'Display name is required'),
   isDefault: z.boolean(),
   device: DeviceSchema,
-  driverName: z.enum(['wia', 'twain', 'escl', 'sane', '']),
+  driverName: z.enum(['wia', 'twain', '']),
   bitDepth: z.string(),
   pageSize: z.string(),
   resolution: z.string(),
@@ -36,7 +36,7 @@ export const CreateProfileSchema = z.object({
     })
     .optional()
     .default({ id: '', name: '' }),
-  driverName: z.enum(['wia', 'twain', 'escl', 'sane', '']).optional().default('wia'),
+  driverName: z.enum(['wia', 'twain', '']).optional().default('wia'),
   bitDepth: z.string().optional().default('C24Bit'),
   pageSize: z.string().optional().default('Letter'),
   resolution: z.string().optional().default('Dpi300'),
@@ -52,7 +52,7 @@ export const UpdateProfileSchema = z.object({
       name: z.string().optional(),
     })
     .optional(),
-  driverName: z.enum(['wia', 'twain', 'escl', 'sane', '']).optional(),
+  driverName: z.enum(['wia', 'twain', '']).optional(),
   bitDepth: z.string().optional(),
   pageSize: z.string().optional(),
   resolution: z.string().optional(),

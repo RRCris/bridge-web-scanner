@@ -153,3 +153,8 @@
 2026-01-19 10:48:06.2013 84360 Debug: Using TWAIN2 memory functions. 
 2026-01-19 10:48:06.2013 84360 Debug: Source id = 1 
 2026-01-19 10:48:06.2013 84360 Debug: Thread 1: CloseManager. 
+2026-01-19 16:01:00.6780 39400 Debug: Using new dsm. 
+2026-01-19 16:01:00.7589 39400 Debug: Thread 1: OpenManager. 
+2026-01-19 16:01:01.4910 39400 Debug: Using TWAIN2 memory functions. 
+2026-01-19 16:01:01.4947 39400 Debug: Source id = 1 
+2026-01-19 16:01:01.4947 39400 Debug: Thread 1: CloseManager. 
