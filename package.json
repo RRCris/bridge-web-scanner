@@ -11,7 +11,7 @@
     "lint": "eslint \"src/**/*.ts\"",
     "lint:fix": "eslint \"src/**/*.ts\" --fix",
     "format": "prettier --write \"src/**/*.ts\"",
-    "pkg": "npm run build && npm run pkg:api &&  && xcopy scripts\\list-wia-devices.ps1 bin\\scripts\\ /I /Y",
+    "pkg": "npm run build && npm run pkg:api &&  xcopy scripts\\list-wia-devices.ps1 bin\\scripts\\ /I /Y",
     "pkg:api": "pkg . --targets node18-win-x64 --output bin/bridge-scan-web.exe"
   },
   "pkg": {
