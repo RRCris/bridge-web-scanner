@@ -60,6 +60,9 @@ export async function listDevices(
 
     devices = await enrichWithWiaIds(devices);
 
+    // Filtrar dispositivos sin ID
+    devices = devices.filter((device) => device.id && device.id.trim() !== '');
+
     res.json({
       success: true,
       data: devices,

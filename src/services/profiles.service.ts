@@ -9,7 +9,7 @@ import type { ScanProfile } from '../types';
 // Schemas de validación Zod
 const DeviceSchema = z.object({
   id: z.string(),
-  name: z.string().min(1, 'Device name is required'),
+  name: z.string(),
 });
 
 const ScanProfileSchema = z.object({
@@ -25,17 +25,14 @@ const ScanProfileSchema = z.object({
 
 const ScanProfileArraySchema = z.array(ScanProfileSchema);
 
-// Schema para crear/actualizar profile (campos opcionales excepto displayName)
+// Schema para crear/actualizar profile (campos opcionales excepto displayName y device)
 export const CreateProfileSchema = z.object({
   displayName: z.string().min(1, 'Display name is required'),
   isDefault: z.boolean().optional().default(false),
-  device: z
-    .object({
-      id: z.string().optional().default(''),
-      name: z.string().optional().default(''),
-    })
-    .optional()
-    .default({ id: '', name: '' }),
+  device: z.object({
+    id: z.string().min(1, 'Device ID is required'),
+    name: z.string().min(1, 'Device name is required'),
+  }),
   driverName: z.enum(['wia', 'twain', '']).optional().default('wia'),
   bitDepth: z.string().optional().default('C24Bit'),
   pageSize: z.string().optional().default('Letter'),
